@@ -17,11 +17,7 @@
       href={`${config.path}/themes/${config["status-website"].theme}.css`}
     />
   {:else}
-    <!-- https://caniuse.com/prefers-color-scheme -->
-    <!-- https://web.dev/prefers-color-scheme/ -->
     <script>
-      // If `prefers-color-scheme` is not supported, fall back to light mode.
-      // In this case, light.css will be downloaded with `highest` priority.
       if (typeof window !== "undefined" && typeof document !== "undefined" && "matchMedia" in window && window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
         document.documentElement.style.display = 'none';
         document.head.insertAdjacentHTML(
@@ -89,6 +85,9 @@
   <slot />
 </main>
 
+<!-- Footer removed -->
+
+<!--
 <footer>
   <p>
     {@html snarkdown(
@@ -104,6 +103,7 @@
     margin-top: 3rem;
   }
 </style>
+-->
 
 {#if (config["status-website"] || {}).customFootHtml}
   {@html (config["status-website"] || {}).customFootHtml}
